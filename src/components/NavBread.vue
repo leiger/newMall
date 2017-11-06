@@ -2,8 +2,7 @@
   <div class="layout-breadcrumb">
     <Breadcrumb>
       <BreadcrumbItem href="#">Home</BreadcrumbItem>
-      <BreadcrumbItem href="#">Projects</BreadcrumbItem>
-      <BreadcrumbItem>iView</BreadcrumbItem>
+      <BreadcrumbItem>goods</BreadcrumbItem>
     </Breadcrumb>
   </div>
 </template>

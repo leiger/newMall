@@ -1,8 +1,8 @@
 <template>
   <div>
     <Menu mode="horizontal" theme="dark" active-name="1">
-      <div class="layout-logo">newMall</div>
-      <div class="layout-nav">
+      <div class="layout-logo">Leiger's Mall</div>
+      <!--<div class="layout-nav">
         <MenuItem name="1">
           <Icon type="ios-navigate"></Icon>
           Item 1
@@ -19,7 +19,7 @@
           <Icon type="ios-paper"></Icon>
           Item 4
         </MenuItem>
-      </div>
+      </div>-->
       <div class="layout-ceiling">
         <div class="layout-ceiling-main">
           <a href="#">Login</a> |
