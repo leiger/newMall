@@ -6,13 +6,11 @@
       <div class="layout-content-main">
         <Row :gutter="16">
           <Col span="6">
-          <Menu active-name="1">
-            <MenuGroup title="PRICE">
-              <MenuItem name="1">
-                ALL
-              </MenuItem>
-              <MenuItem name="2">
-                0-100
+          <Menu active-name="1" >
+            <MenuGroup title="PRICE" @on-select="priceChoose">
+              <MenuItem name="0">All</MenuItem>
+              <MenuItem v-for="(price, index) in priceFilter" :key="price.id" v-bind:name='index+1'>
+                {{price.startPrice}} - {{price.endPrice}}
               </MenuItem>
             </MenuGroup>
           </Menu>
@@ -21,17 +19,17 @@
           <Row>
             <div class="sort_info">
               <p>Sort by:
-              <RadioGroup v-model="sort_choice" type="button" size="small" class="sort_btn">
-                <Radio label="default"></Radio>
-                <Radio label="price"></Radio>
-              </RadioGroup>
+                <RadioGroup v-model="sort_choice" type="button" size="small" class="sort_btn">
+                  <Radio label="default"></Radio>
+                  <Radio label="price"></Radio>
+                </RadioGroup>
               </p>
             </div>
           </Row>
           <Row :gutter="16">
-            <Col span="6" v-for="item in goodList" :key="index">
+            <Col span="6" v-for="item in goodList" :key="item.productId">
             <Card class="card_box">
-              <img v-bind:src="'/static/' + item.productImg" alt="">
+              <img v-lazy="'/static/' + item.productImg" alt="">
               <h3>{{item.productName}}</h3>
               <p>${{item.productPrice}}</p>
               <Button type="default" long>Add to Cart</Button>
@@ -55,8 +53,25 @@
   export default {
     data() {
       return {
-        goodList: '',
-        sort_choice: 'default'
+        goodList: [],
+        sort_choice: 'default',
+        priceFilter: [
+          {
+            id: 1,
+            startPrice: '0',
+            endPrice: '500'
+          },
+          {
+            id: 2,
+            startPrice: '500',
+            endPrice: '1000'
+          },
+          {
+            id: 3,
+            startPrice: '1000',
+            endPrice: '2000'
+          }
+        ]
       }
     },
     components: {
@@ -73,6 +88,9 @@
           var res = result.data;
           this.goodList = res.result;
         })
+      },
+      priceChoose(priceId) {
+
       }
     }
   }
@@ -100,7 +118,7 @@
     margin-bottom: 15px;
   }
 
-  .card_box img{
+  .card_box img {
     width: 100%;
     height: 100%;
   }

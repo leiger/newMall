@@ -3,6 +3,8 @@
     <Breadcrumb>
       <BreadcrumbItem href="#">Home</BreadcrumbItem>
       <BreadcrumbItem>goods</BreadcrumbItem>
+      <BreadcrumbItem>goods</BreadcrumbItem>
+      <BreadcrumbItem>goods</BreadcrumbItem>
     </Breadcrumb>
   </div>
 </template>
